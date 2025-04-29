@@ -1,6 +1,8 @@
 package com.cg.user_form;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserModel {
     private String firstName;
     private String lastName;
