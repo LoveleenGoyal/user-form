@@ -1,15 +1,37 @@
 package com.cg.user_form;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
 
 
 @Controller
-@SessionAttributes("user")
+//@SessionAttributes("user")
 public class UserController {
+    @GetMapping("/page1")
+    public String showPage1() {
+        return "first-page";
+    }
 
-    @ModelAttribute("user")
+    @PostMapping("/page2")
+    public String goToPage2(Model model, UserModel user) {
+        model.addAttribute("user", user);
+        return "second-page";
+    }
+
+    @PostMapping("/page3")
+    public String goToPage3(Model model, UserModel user) {
+        model.addAttribute("user", user);
+        return "third-page";
+    }
+
+    @PostMapping("/page4")
+    public String goToPage4(Model model, UserModel user) {
+        model.addAttribute("user", user);
+        return "summary";
+    }
+
+    /*@ModelAttribute("user")
     public UserModel setUpUserForm() {
         return new UserModel();
     }
@@ -40,10 +62,9 @@ public class UserController {
     @PostMapping("/page4")
     public String goToFourthPage(@ModelAttribute("user") UserModel user,
                                  @RequestParam String city,
-                                 @RequestParam String country,
-                                 SessionStatus status) {
+                                 @RequestParam String country) {
         user.setCity(city);
         user.setCountry(country);
         return "summary";
-    }
+    }*/
 }

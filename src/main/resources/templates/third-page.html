@@ -13,6 +13,10 @@
 <h3>Email: <span th:text="${user.email}"></span></h3>
 <h3>Phone Number: <span th:text="${user.phone}"></span></h3>
 <form th:action="@{/page4}" method="post">
+    <input type="hidden" name="firstName" th:value="${user.firstName}" />
+    <input type="hidden" name="lastName" th:value="${user.lastName}" />
+    <input type="hidden" name="email" th:value="${user.email}" />
+    <input type="hidden" name="phone" th:value="${user.phone}" />
     City: <input type="text" name="city"><br><br>
     Country: <input type="text" name="country"><br><br>
     <button type="submit">Submit</button>
