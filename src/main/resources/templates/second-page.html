@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Second Page</title>
 </head>
 <body>
-$END$
+
+<h2>Second Page</h2>
+
+<!-- Displaying firstName and lastName -->
+<h3>First Name: <span th:text="${user.firstName}"></span></h3>
+<h3>Last Name: <span th:text="${user.lastName}"></span></h3>
+
+<form th:action="@{/page3}" method="post">
+
+    Email: <input type="email" name="email"><br><br>
+    Phone: <input type="text" name="phone"><br><br>
+    <button type="submit">Submit</button>
+</form>
+
 </body>
 </html>
